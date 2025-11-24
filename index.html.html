@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eylül & Murat</title>
+  <style>
+    :root { --dark-color: #06131a; }
+    html, body { margin: 0; height: 100%; overflow: hidden; background: linear-gradient(180deg,#02121a 0%,#2b0000 100%); display: flex; justify-content: center; align-items: center; }
+    .photo-container { width: 100%; display: flex; justify-content: center; align-items: center; padding: 10px; z-index: 100; position: relative; }
+    .photo-container img { width: 100%; max-width: 600px; height: auto; border-radius: 10px; }
+    .night { position: fixed; left: 50%; top: 0; transform: translateX(-50%); width: 100%; height: 100%; filter: blur(0.1vmin); background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), radial-gradient(ellipse at bottom, var(--dark-color), rgba(255, 0, 0, 0.2)), repeating-linear-gradient(220deg, black 0px, black 19px, transparent 19px, transparent 22px), repeating-linear-gradient(189deg, black 0px, black 19px, transparent 19px, transparent 22px), repeating-linear-gradient(148deg, black 0px, black 19px, transparent 19px, transparent 22px), linear-gradient(90deg, #8B0000, #FF0000); }
+    .flowers { position: relative; transform: scale(0.7); z-index: 10; }
+    .flower { position: absolute; bottom: 10vmin; transform-origin: bottom center; }
+    .flower__line { height: 55vmin; width: 1.5vmin; background: linear-gradient(to top, #800000, #B22222); box-shadow: inset 0 0 2px rgba(0,0,0,0.5); animation: grow 4s backwards; }
+    .flower__leaf { position: absolute; bottom: 0; left: 50%; width: 8vmin; height: 11vmin; border-radius: 50%; background: linear-gradient(to top,#A52A2A,#B22222); transform-origin: bottom center; opacity: 0.9; }
+    @keyframes grow { 0% { transform: scaleY(0); } 100% { transform: scaleY(1); } }
+  </style>
+</head>
+<body class="not-loaded">
+  <div class="photo-container">
+    <img src="resim.jpg" alt="Eylül ve Murat">
+  </div>
+
+  <div class="night"></div>
+  <div class="flowers">
+    <div class="flower flower--1">
+      <div class="flower__line">
+        <div class="flower__leaf"></div>
+      </div>
+    </div>
+    <div class="flower flower--2" style="left:50%; transform: rotate(30deg);">
+      <div class="flower__line">
+        <div class="flower__leaf"></div>
+      </div>
+    </div>
+    <div class="flower flower--3" style="left:50%; transform: rotate(-15deg);">
+      <div class="flower__line">
+        <div class="flower__leaf"></div>
+      </div>
+    </div>
+  </div>
+
+  <audio src="muzik.mp3" autoplay loop hidden></audio>
+
+  <script>
+    window.onload = () => {
+      setTimeout(() => document.body.classList.remove("not-loaded"), 1000);
+    };
+  </script>
+</body>
+</html>
